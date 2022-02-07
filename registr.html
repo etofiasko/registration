@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Test test</title>
+</head>
+<body>
+
+<form onsubmit="return validate()" method = 'post' action="" autocomplete="off">
+<label for="user">Username</label><br>
+<input type="text" id="user" name="un" onkeyup="filled()" required><br><br>
+<label for="pass">Password</label><br>
+<input type="text" id="pass" name="ps" onkeyup="filled()" required><br><br>
+<label for="conf">Confirm Password</label><br>
+<input type="text" id="conf" name="cps" onkeyup="filled()" required><br>
+<span id="mssg"></span><br><br>
+
+<input type="submit" id="myBtn" value="Register" onclick="success()" disabled>
+</form>
+
+
+
+<script>
+function filled(){
+var pfield = document.getElementById("pass").value;
+var cfield = document.getElementById("conf").value;
+var ufield = document.getElementById("user").value;
+var passch;
+
+if (pfield!=cfield){
+document.getElementById("mssg").innerHTML = 'Passwords does not match!';
+passch=false;}
+else{
+document.getElementById("mssg").innerHTML = 'Passwords match!';
+passch=true;}
+
+if(pfield!="" && cfield!="" && ufield!="" && passch==true){
+document.getElementById("myBtn").disabled = false;}
+else{
+document.getElementById("myBtn").disabled = true;}
+}
+
+
+function success(){
+alert("You have been successfully registered!");}
+</script>
+
+</body>
+</html>
